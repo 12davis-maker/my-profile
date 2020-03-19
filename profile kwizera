@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>kwizera profile</title>
+  <meta charset="UTF-8">
+<style>
+
+/* Style the navigation bar */
+.navbar {
+  width: 100%;
+  background-color: #555;
+  overflow: auto;
+}
+
+/* Navbar links */
+.navbar a {
+  float: left;
+  text-align: center;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Navbar links on mouse-over */
+.navbar a:hover {
+  background-color: #000;
+}
+
+/* Current/active navbar link */
+.active {
+  background-color: #4CAF50;
+}
+
+/* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+}
+
+
+* {box-sizing: border-box}
+
+/* style the container */
+.container {
+  position: relative;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px 0 30px 0;
+}
+
+/* style inputs and link buttons */
+input,
+.btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  margin: 5px 0;
+  opacity: 0.85;
+  display: inline-block;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none; /* remove underline from anchors */
+}
+
+input:hover,
+.btn:hover {
+  opacity: 1;
+}
+
+/* add appropriate colors to fb, twitter and google buttons */
+.fb {
+  background-color: #3B5998;
+  color: white;
+}
+
+.twitter {
+  background-color: #55ACEE;
+  color: white;
+}
+
+.google {
+  background-color: #dd4b39;
+  color: white;
+}
+
+/* style the submit button */
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+/* Two-column layout */
+.col {
+  float: left;
+  width: 50%;
+  margin: auto;
+  padding: 0 50px;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* vertical line */
+.vl {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  border: 2px solid #ddd;
+  height: 175px;
+}
+
+/* text inside the vertical line */
+.inner {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  padding: 8px 10px;
+}
+
+/* hide some text on medium and large screens */
+.hide-md-lg {
+  display: none;
+}
+
+/* bottom container */
+.bottom-container {
+  text-align: center;
+  background-color: #666;
+  border-radius: 0px 0px 4px 4px;
+}
+
+/* Responsive layout - when the screen is less than 650px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 650px) {
+  .col {
+    width: 100%;
+    margin-top: 0;
+  }
+  /* hide the vertical line */
+  .vl {
+    display: none;
+  }
+  /* show the hidden text on small screens */
+  .hide-md-lg {
+    display: block;
+    text-align: center;
+  }
+}
+
+
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
+    .image{
+border-radius: 45px;
+width: 200px;
+height: 200px;
+    }
+    body{
+        color: rgb(132, 0, 255);
+    text-align: center;
+    background: linear-gradient(30deg,teal,rgb(128, 0, 43));
+    color:gold;
+    font-family: Arial, Helvetica, sans-serif;
+    
+      }
+     
+    
+ 
+</style>
+
+</head>
+
+<header>
+   <!-- Load an icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="navbar">
+    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+        <i class="fa fa-bars"></i>
+    </a>
+    <a href="#welcome" class="w3-bar-item w3-button">WELCOME</a>
+    <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT</a>
+    <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PORTFOLIO</a>
+    <a href="profile.html" class="w3-bar-item w3-button">PROFILE</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
+        <i class="fa fa-search"></i>
+    </a>
+</div><br>
+  
+<div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+    <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
+    <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">PORTFOLIO</a>
+    <a href="profile.html" class="w3-bar-item w3-button" onclick="toggleFunction()">PROFILE</a>
+    <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
+</div>
+
+
+
+</header>
+<body>
+  
+
+<!-- First Parallax Image with Logo Text -->
+<div class="bgimg-1 w3-display-container w3-opacity-min" id="welcome">
+    <div class="w3-display-middle" style="white-space:nowrap background-color=rgb(0, 109, 128) color=white" ;>
+        <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity"> <span class="w3-hide-small">kwizeradavisnkurunzizaa</span> </span>
+    </div>
+    <div>
+        <a target="_blank" href="./images/dav.jpg ">
+            <img src="./images/see.jpg" alt="Cinque Terre" width="100%" height="500" ;>
+    </div>
+    </a>
+</div>
+
+
+
+  
+   <!-- Container (About Section) -->
+   <div class="w3-content w3-container w3-padding-64" id="about" ;>
+      <id style="text-align: center background-color= rgb(100, 216, 236) color=white;">
+          <h3 class="w3-center">ABOUT ME</h3>
+          <p class="w3-center"><em>I love programming</em></p>
+          <p><img src="./images/space.jpg" style="width:40%" height="auto" alt="">
+              <h6><b>Biodata</b></h6>Born in kisoro district on 14th november,<br>
+
+              <h6><b>Education:</b></h6>
+              <p>
+                  <ul>
+                      <h6><b>Greenbridge School of Open Technologies: (2019-2021)</b></h6>
+                      <u>Certificates:</u>
+                      <li> Mobile App Development</li>
+                      <li> Full stack web app development</li>
+                      <li> Programming in Java </li>
+                      <li> Image and Motion Graphics</li>
+                      <li> 3D Animation</li>
+                      <li> Audio and Video Production</li>
+                  </ul>
+              </p>
+            
+          <!-- Hide this text on small devices -->
+          <div>
+              <b><h5>Welcome to my website.</b></h5><p> I'm a Businessman, Politician in the Democratic Party, Humanitarian and a Programmer.</p>
+          </div>
+      </div>
+  </div>
+  <p class="w3-large w3-center w3-padding-16" style="text-align: center background-color=rgb(0, 109, 128) color=white;"><b>My Technical skills are:</b></p>
+
+  <p class="w3-wide">- Mobile App Development</p>
+  <div class="w3-light-grey">
+      <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:90%"></div>
+  </div>
+
+  <p class="w3-wide">- Full stack Web Development</p>
+  <div class="w3-light-grey">
+      <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:85%"></div>
+  </div>
+
+  <p class="w3-wide">- Image and Motion Graphics </p>
+  <div class="w3-light-grey">
+      <div class="w3-container w3-padding-small w3-dark-grey w3-center">
+      </div>
+
+  </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!-- Container (About Section) -->
+  <div class="w3-content w3-container w3-padding-64" id="Welcome" ;
+  class="card" id="side">
+   <!-- Add icon library -->
+   link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <h1>Profile</h1>
+  <img class="image"src="images/bool.jpg"><br>
+  <h1>Kwizera Davis</h1>
+  <p class="title">CEO & Founder, Havard</p>
+  <p>Harvard University</p>
+  <a href="#"><i class="fa fa-dribbble"></i></a>
+  <a href="#"><i class="fa fa-twitter"></i></a>
+  <a href="#"><i class="fa fa-linkedin"></i></a>
+  <a href="#"><i class="fa fa-facebook"></i></a>
+  <p><button>Contact</button></p>
+
+  
+      <id style="text-align: center background-color= rgb(100, 216, 236) color=white;">
+
+        <!-- Container (Portfolio Section) -->
+    <div class="w3-content w3-container w3-padding-64" id="portfolio">
+        <h3 class="w3-center">My Projects</h3>
+        <p class="w3-center"><em>Here are some of my latest projects.</em></p><br>
+
+        <div id="imagelist" style="display: run-in;">
+
+            <a target="_blank" href="./profile.html">
+                <img src="./w3images/1 (4).jpg" style="width:33.3%" alt="" height="auto" ;>
+            </a>
+
+            <img src="./w3images/1 (7).jpg" style="width:33.3%" alt="" ;>
+            <a target="_blank" href="signin.html"></a>
+
+            <a target="_blank" href="./w3images/1 (33).jpg" ;>
+                <img src="./w3images/1 (33).jpg" style="width:33.3%" alt="" ;>
+            </a>
+
+            <a target="_blank" href="./w3images/1 (5).jpg">
+                <img src="./w3images/1 (5).jpg" style="width:33.3%" alt="" ;>
+            </a>
+
+            <a target="_blank" href="./w3images/1 (8).jpg" ;>
+                <img src="./w3images/1 (8).jpg" style="width:33.3%" alt="" ;>
+            </a>
+
+            <a target="_blank" href="./w3images/1 (9).jpg" ;>
+                <img src="./w3images/1 (9).jpg" style="width:33.3%" alt="" ;>
+            </a>
+
+            <a target="_blank" href="./w3images/background-cont.jpg" ;>
+                <img src="./w3images/background-cont.jpg" style="width:33.3%" alt="" ;>
+            </a>
+
+            <a target="_blank" href="./w3images/background-port.jpg" ;>
+                <img src="./w3images/background-port.jpg" style="width:33.3%" alt="" ;>
+            </a>
+
+            <a target="_blank" href="./w3images/EFF1.jpg" ;>
+                <img src="./w3images/EFF1.jpg" style="width:33.3%" alt="" ;>
+            </a>
+
+            <a target="_blank" href="./w3images/EFF2.jpg " ;>
+                <img src="./w3images/EFF2.jpg" style="width:33.3%" alt="" ;>
+            </a>
+
+            <a target="_blank" href="./w3images/kalonde.jpg" ;>
+                <img src="./w3images/kalonde.jpg" style="width:33.3%" alt="" ;>
+            </a>
+
+            <a target="_blank" href="./w3images/kalonde1.jpg" ;>
+                <img src="./w3images/kalonde1.jpg" style="width:33.3%" alt="" ;>
+            </a>
+
+            <a target="_blank" href="./w3images/work.jpg" ;>
+                <img src="./w3images/work.jpg" style="width:33.3%" alt="" ;>
+            </a>
+
+        </div>
+    </div>
+    <!-- Third Parallax Image with Portfolio Text -->
+    <div class="bgimg-3 w3-display-container w3-opacity-min">
+        <div class="w3-display-middle">
+
+        </div>
+
+
+
+
+
+ <!-- Container (Contact Section) -->
+ <div class="w3-content w3-container w3-padding-64" id="contact" style="background-color:  rgb(100, 216, 236) color=white" ;>
+    <h3 class="w3-center">Where I Work</h3>
+    <p class="w3-center"><em>I'd love your feedback !</em></p>
+    <id style="text-align: center;">
+        <div class="w3-row w3-padding-32 w3-section">
+            <div class="w3-col m4 w3-container">
+            </div>
+            <div class="w3-col m8 w3-panel">
+                <div class="w3-large w3-margin-bottom">
+                    <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Kampala, Uganda<br>
+                    <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: +256704999056 or +256781596585<br>
+                    <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i><b>Emails:</b>
+                    <br> kwizeradavisnkurunzizaa@gmail.com <br>
+                    
+                </div>
+                <p>Swing by for a cup of <i class="fa fa-coffee"></i>, or leave me a note:</p>
+                <form add-fom>
+                    <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+                        <div class="w3-half">
+                            <input class="w3-input w3-border" type="text" placeholder="Name" required id="name">
+                        </div>
+                        <div class="w3-half">
+                            <input class="w3-input w3-border" type="text" placeholder="Email" required id="email">
+                        </div>
+                    </div>
+                    <input class="w3-input w3-border" type="text" placeholder="Message" required id="message">
+                    <button class="w3-button w3-black w3-right w3-section" type="submit" onclick="submit()" id="submit">
+  <i class="fa fa-paper-plane"></i> SEND MESSAGE
+</button>
+                </form>
+            </div>
+        </div>
+    </id>
+</div>
+</div>
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
+<div class="w3-xlarge w3-section">
+    <i class="fa fa-facebook-official w3-hover-opacity"> </i>
+    <i class="fa fa-instagram w3-hover-opacity"> </i>
+    <i class="fa fa-github w3-hover-opacity"> </i>
+    <i class="fa fa-twitter w3-hover-opacity"> </i>
+    <i class="fa fa-linkedin w3-hover-opacity"> </i>
+</div>
+<p>Powered by: <a href="index.html" title="W3.CSS" target="_blank" style="color: rgb(100, 216, 236)" ;>Kwizera</a></p>
+</footer>
+<script>
+// Modal Image Gallery
+function onClick(element) {
+    document.getElementById("img01").src = element.src;
+    document.getElementById("modal01").style.display = "block";
+    var captionText = document.getElementById("caption");
+    captionText.innerHTML = element.alt;
+}
+
+// Change style of navbar on scroll
+window.onscroll = function() {
+    myFunction()
+};
+
+function myFunction() {
+    var navbar = document.getElementById("myNavbar");
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
+    } else {
+        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
+    }
+}
+
+// Used to toggle the menu on small screens when clicking on the menu button
+function toggleFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>
+
+
+
+
+
+
+     
+  
+    
+    
+
+</div>
+
+
+  
+
+
+
+    
+
+
+<footer>
+<br>    Copyright © Kwizera's Profile
+</footer>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
